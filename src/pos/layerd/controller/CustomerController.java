@@ -4,6 +4,7 @@
  */
 package pos.layerd.controller;
 
+import java.util.ArrayList;
 import pos.layerd.dto.CustomerDto;
 import pos.layerd.service.ServiceFactory;
 import pos.layerd.service.custom.CustomerService;
@@ -19,6 +20,10 @@ public class CustomerController {
 
     public String addCustomer(CustomerDto customerDto) throws Exception {
         return customerService.addCustomer(customerDto);
+    }
+
+    public ArrayList<CustomerDto> getAllCustomers() throws Exception {
+        return customerService.getAllCustomer();
     }
     
 }
