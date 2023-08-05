@@ -5,35 +5,39 @@
 package pos.layerd.dao;
 
 import pos.layerd.dao.custom.impl.CustomerDaoImpl;
+import pos.layerd.dao.custom.impl.ItemDaoImpl;
 
 /**
  *
  * @author anjanathrishakya
  */
 public class DaoFactory {
-    
+
     private static DaoFactory daoFactory;
-    
-    private DaoFactory(){}
-    
-    public static DaoFactory getInstance(){
-        if(daoFactory == null){
+
+    private DaoFactory() {
+    }
+
+    public static DaoFactory getInstance() {
+        if (daoFactory == null) {
             daoFactory = new DaoFactory();
         }
-        
+
         return daoFactory;
     }
-    
-    public SuperDao getDao(DaoTypes type){
+
+    public SuperDao getDao(DaoTypes type) {
         switch (type) {
             case CUSTOMER:
                 return new CustomerDaoImpl();
+            case ITEM:
+                return new ItemDaoImpl();
             default:
                 return null;
         }
     }
-    
-    public enum DaoTypes{
-        CUSTOMER
+
+    public enum DaoTypes {
+        CUSTOMER, ITEM
     }
 }
